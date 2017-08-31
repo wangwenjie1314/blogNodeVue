@@ -13,6 +13,7 @@ var config = require('config-lite'); //读取配置文件
 var routes = require('./routes'); //路由
 var winston = require('winston'); //日志
 var expressWinston = require('express-winston'); //基于 winston 的用于 express 的日志中间件
+var models = require('./models');
 
 //配置i18n
 i18n.configure({

@@ -28,11 +28,9 @@ var AdminUser = Mysql.define('adminUser', {
 }, {
 	freezeTableName: true, // 自定义表名
 	tableName: 'AdminUser',
-	timestamps: true, // 不要添加时间戳属性 (updatedAt, createdAt)
-	// 将createdAt字段改个名
-	'createdAt': 'createDate',
-	// 将updatedAt字段改个名
-	'updatedAt': 'updateDate',
+	timestamps: true, // 添加时间戳属性 (updatedAt, createdAt)
+	createdAt: 'createDate',// 将createdAt字段改个名
+	updatedAt: 'updateDate',// 将updatedAt字段改个名
 	indexes: [{ // 索引
 		type: 'UNIQUE',
 		method: 'BTREE',

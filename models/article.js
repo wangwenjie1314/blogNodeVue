@@ -32,13 +32,10 @@ var Article = Mysql.define('article', {
 }, {
 	freezeTableName: true, // 自定义表名
 	tableName: 'Article',
-	timestamps: true, // 不要添加时间戳属性 (updatedAt, createdAt)
-	// 将createdAt字段改个名
-	'createdAt': 'createDate',
-	// 将updatedAt字段改个名
-	'updatedAt': 'updateDate',
+	timestamps: true, // 添加时间戳属性 (updatedAt, createdAt)
+	createdAt: 'createDate',// 将createdAt字段改个名
+	updatedAt: 'updateDate',// 将updatedAt字段改个名
 	indexes: [{ // 索引
-		// name: 'User_uuid',//默认为模型名 + '_' + 字段名
 		type: 'UNIQUE', //UNIQUE、 FULLTEXT 或 SPATIAL之一
 		method: 'BTREE', //BTREE 或 HASH
 		unique: true, //唯一 //设置索引是否唯一，设置后会自动触发UNIQUE设置//true:索引列的所有值都只能出现一次，即必须唯一

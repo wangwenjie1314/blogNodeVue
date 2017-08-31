@@ -3,9 +3,9 @@
  * @type {[type]}
  */
 var Sequelize = require('sequelize');
-var Mysql = require('../mysql');
+var Mysql = require('./mysql');
 
-var ArticleAttachment = Mysql.define('articleAttachment', {
+var Attachment = Mysql.define('attachment', {
 	uuid: {
 		type: Sequelize.UUID,
 		allowNull: false,
@@ -22,12 +22,10 @@ var ArticleAttachment = Mysql.define('articleAttachment', {
 	}, //是否删除
 }, {
 	freezeTableName: true, // 自定义表名
-	tableName: 'ArticleAttachment',
-	timestamps: true, // 不要添加时间戳属性 (updatedAt, createdAt)
-	// 将createdAt字段改个名
-	'createdAt': 'createDate',
-	// 将updatedAt字段改个名
-	'updatedAt': 'updateDate',
+	tableName: 'Attachment',
+	timestamps: true, // 添加时间戳属性 (updatedAt, createdAt)
+	createdAt: 'createDate',// 将createdAt字段改个名
+	updatedAt: 'updateDate',// 将updatedAt字段改个名
 	indexes: [{ // 索引
 		type: 'UNIQUE',
 		method: 'BTREE',
@@ -36,4 +34,4 @@ var ArticleAttachment = Mysql.define('articleAttachment', {
 	}],
 });
 
-module.exports = ArticleAttachment;
+module.exports = Attachment;
