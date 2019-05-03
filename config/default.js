@@ -21,7 +21,7 @@ var configs = {
 		salt: 10, //密码强度
 	},
 	token: { //token https://github.com/auth0/node-jsonwebtoken
-		secretOrPrivateKey: 'app.superSecret', //key the secret for HMAC algorithms, or the PEM encoded private key for RSA and ECDSA.
+		secretOrPrivateKey: 'iboomer', // app.superSecret key the secret for HMAC algorithms, or the PEM encoded private key for RSA and ECDSA.
 	},
 	page: { //默认分页
 		currPage: 1,

@@ -6,8 +6,8 @@
 var express = require('express');
 var router = express.Router();
 var userDao = require('../controllers/user');
-// var checkToken = require('../middlewares/check').checkToken; //检查token的中间件
-// var checkAdminToken = require('../middlewares/check').checkAdminToken; //检验管理员token
+var checkToken = require('../middlewares/check').checkToken; //检查token的中间件
+var checkAdminToken = require('../middlewares/check').checkAdminToken; //检验管理员token
 /**
  * 注册 post
  */
@@ -29,29 +29,29 @@ router.post('/login', function(req, res, next) {
 /**
  * 查询全部用户 支持 高级搜索、分页
  */
-// router.get('/list', checkAdminToken, function(req, res, next) {
-// 	userDao.getUserList(req, res, next);
-// });
+router.get('/list', checkAdminToken, function(req, res, next) {
+	userDao.getUserList(req, res, next);
+});
 
 /**
  * 查询用户 byuuid
  */
-// router.get('/info', checkToken, function(req, res, next) {
-// 	userDao.getUserInfo(req, res, next);
-// });
+router.get('/info', function(req, res, next) {
+	userDao.getUserInfo(req, res, next);
+});
 
 /**
  * 更新用户信息
  */
-// router.put('/info', checkToken, function(req, res, next) {
-// 	userDao.updateUserInfo(req, res, next);
-// });
+router.put('/info', checkToken, function(req, res, next) {
+	userDao.updateUserInfo(req, res, next);
+});
 
 /**
  * 修改密码
  */
-// router.put('/pwd', checkToken, function(req, res, next) {
-// 	userDao.updateUserPwd(req, res, next);
-// });
+router.put('/pwd', checkToken, function(req, res, next) {
+	userDao.updateUserPwd(req, res, next);
+});
 
 module.exports = router;
