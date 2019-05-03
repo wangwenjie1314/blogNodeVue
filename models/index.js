@@ -30,12 +30,12 @@ Category.belongsToMany(Article,{through: 'ArticleCategory'}); //N:N
 Article.hasMany(Attachment); //1:N
 Attachment.belongsTo(Article); //1:1
 
-//基于sequelize自动创建表
-Mysql.sync({
-	force: true,//是否清空数据库表
-}).then(function() {
-	console.log('ok');
-});
+//基于sequelize自动创建表//【！！注意 首次执行完请注释掉该段代码 ！！】
+// Mysql.sync({
+// 	force: true,//是否清空数据库表
+// }).then(function() {
+// 	console.log('ok');
+// });
 
 module.exports = {
 	AdminUser: AdminUser,
