@@ -1,31 +1,50 @@
 /**
  * 用户API router
  * add by wwj
- * 2019-05-03 20:52:01
+ * 2016-12-22 17:45:53
  */
 var express = require('express');
 var router = express.Router();
+
 var userDao = require('../controllers/user');
 var checkToken = require('../middlewares/check').checkToken; //检查token的中间件
 var checkAdminToken = require('../middlewares/check').checkAdminToken; //检验管理员token
+
 /**
  * 注册 post
  */
 router.post('/reg', function(req, res, next) {
 	userDao.reg(req, res, next);
 });
+
 /**
  * 检测邮箱是否注册
  */
 router.get('/checkEmail', function(req, res, next) {
 	userDao.checkEmail(req, res, next);
 });
+
 /**
  * 登录
  */
 router.post('/login', function(req, res, next) {
 	userDao.login(req, res, next);
 });
+
+/**
+ * 退出
+ */
+router.get('/logout', checkToken, function(req, res, next) {
+	userDao.logout(req, res, next);
+});
+
+/**
+ * 更新token 防止token过期
+ */
+router.put('/token', function(req, res, next) {
+	userDao.updateAccessToken(req, res, next);
+});
+
 /**
  * 查询全部用户 支持 高级搜索、分页
  */

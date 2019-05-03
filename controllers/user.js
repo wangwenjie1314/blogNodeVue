@@ -269,31 +269,31 @@ module.exports = {
 			pageSize: utils.handlePageSize(params.pageSize), //每页数量
 		};
 		//查询
-		User.findAndCountAll({
-			where: condition,
-			attributes: {
-				excludse: ['password'],
-			},
-			limit: page.pageSize, // 每页多少条
-			offset: page.pageSize * (page.currPage - 1), // 跳过多少条
-			order: [ //排序
-				['createDate', 'DESC'],
-			]
-		}).then(function(result) {
+		co(function*() {
+			var result = yield User.findAndCountAll({
+				where: condition,
+				attributes: {
+					excludse: ['password'],
+				},
+				limit: page.pageSize, // 每页多少条
+				offset: page.pageSize * (page.currPage - 1), // 跳过多少条
+				order: [ //排序
+					['createDate', 'DESC'],
+				]
+			});
 			var userList = result.rows || [];
 			//处理分页
-			utils.handlePage({
+			var pageResult = yield utils.handlePage({
 				count: result.count,
 				page: page,
-			}).then(function(result) {
-				//success
-				utils.handleJson({
-					response: res,
-					result: {
-						list: userList,
-						page: result,
-					},
-				});
+			});
+			//success
+			utils.handleJson({
+				response: res,
+				result: {
+					list: userList,
+					page: pageResult,
+				},
 			});
 		}).catch(function(error) {
 			//err
@@ -368,7 +368,7 @@ module.exports = {
 		}
 		//更新
 		co(function*() {
-			var userResult = User.update(user, {
+			var userResult = yield User.update(user, {
 				// fields: ['trueName', 'birth', 'sex', 'city', 'address'], //设置允许更新字段白名单
 				where: {
 					uuid: userUuid,

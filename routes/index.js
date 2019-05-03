@@ -7,6 +7,7 @@ var utils = require('../libs/utils'); //工具类
 module.exports = function(app) {
 	//router分流
 	app.use('/user', require('./user'));
+	app.use('/admin', require('./admin'));
 
 	// catch 404 and forward to error handler
 	app.use(function(req, res, next) {
