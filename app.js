@@ -22,11 +22,16 @@ i18n.configure({
   defaultLocale: 'zh-CN' //默认的语言
 });
 
+//实例化express
+var app = express();
+
+//i18n
+app.use(i18n.init);
+
 //res.__ 生成
 //req.__ 获取
 
-//实例化express
-var app = express();
+
 
 // 设置模板目录
 app.set('views', path.join(__dirname, 'views'));
@@ -57,9 +62,6 @@ app.use(cors({
   methods: "PUT,POST,GET,DELETE,OPTIONS",
   // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }));
-
-//i18n
-app.use(i18n.init);
 
 // 路由
 routes(app);
