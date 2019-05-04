@@ -16,10 +16,6 @@ var Attachment = Mysql.define('attachment', {
 	relativeUrl: Sequelize.STRING, //附件相对地址
 	absoluteUrl: Sequelize.STRING, //附件绝对地址
 	type: Sequelize.STRING(2), //附件类型（1图片、2视频、3音频、4其他文件）
-	isDelete: {
-		type: Sequelize.STRING(2),
-		defaultValue: "0", //默认值 否
-	}, //是否删除
 }, {
 	freezeTableName: true, // 自定义表名
 	tableName: 'Attachment',

@@ -9,12 +9,11 @@ var User = require('./user');//用户表
 var UserInfo = require('./userInfo');//用户信息表
 var Article = require('./article');//文章表
 var Category = require('./category');//文章类别表
-var Attachment = require('./attachment');//文章附件表
+var Attachment = require('./attachment');//附件表
 
 /**
  * 关系建立
  */
-
 //用户-用户资料
 User.hasOne(UserInfo); //1:1
 
@@ -26,16 +25,12 @@ Article.belongsTo(User); //1:1
 Article.belongsToMany(Category,{through: 'ArticleCategory'}); //N:N
 Category.belongsToMany(Article,{through: 'ArticleCategory'}); //N:N
 
-//文章-附件
-Article.hasMany(Attachment); //1:N
-Attachment.belongsTo(Article); //1:1
-
 //基于sequelize自动创建表//【！！注意 首次执行完请注释掉该段代码 ！！】
-// Mysql.sync({
-// 	force: true,//是否清空数据库表
-// }).then(function() {
-// 	console.log('ok');
-// });
+Mysql.sync({
+	force: true,//是否清空数据库表
+}).then(function() {
+	console.log('ok');
+});
 
 module.exports = {
 	AdminUser: AdminUser,

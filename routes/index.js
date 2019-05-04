@@ -6,6 +6,7 @@ var utils = require('../libs/utils'); //工具类
 
 module.exports = function(app) {
 	//router分流
+	app.use('/common', require('./common'));
 	app.use('/user', require('./user'));
 	app.use('/admin', require('./admin'));
 

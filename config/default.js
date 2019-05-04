@@ -50,6 +50,11 @@ var configs = {
 			},
 		},
 	},
+	filePrefix: "http://localhost:3000/attchments/", //文件前缀
+	fileAbsolute: { //文件绝对路径
+		default: 'http://localhost:3000/attchments/default/',
+		face: 'http://localhost:3000/attchments/face/',
+	},
 };
 
 module.exports = configs;
