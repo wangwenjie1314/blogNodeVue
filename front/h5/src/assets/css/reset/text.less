@@ -1,0 +1,185 @@
+/*
+* text cssreset
+* @Author: boomer
+* @Date:   2016-05-03 14:48:52
+*/
+
+//------- 左中右 ----------
+.text-left{
+	text-align: left !important;
+}
+.text-center{
+	text-align: center !important;
+}
+.text-right{
+	text-align: right !important;
+}
+
+//------- 文本 ----------
+//正常
+.text-normal{
+	font-weight:normal !important;
+	font-style:normal !important;
+}
+
+//加粗
+.text-bolder{
+	font-weight:bolder;
+}
+.text-line-through{
+	text-decoration:line-through;
+}
+
+//------- 换行 ----------
+//不换行
+.text-nowrap{
+	white-space: nowrap;
+}
+//强制换行
+.text-word-break{
+	word-wrap: break-word;
+	word-break:break-all;
+}
+//超出...
+.text-truncate{
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+//超出3行...
+.text-truncate-row{
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	word-break:break-all;
+}
+
+//------- 下划线 ----------
+.text-underline{
+	text-decoration:underline;
+	&:hover{
+		text-decoration:underline;
+	}
+}
+.text-underline-hover{
+	&:hover{
+		text-decoration:underline;
+	}
+}
+//------- 文本首行缩进 ----------
+.text-indent{
+	text-indent:2em !important;
+}
+
+//------- 色值 ----------
+
+// ------ 主色 ------
+.text-primary {
+  color: #2196F3 !important;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: @color-blue-7;
+}
+.text-primary-second {
+  color: #00bcd4;
+}
+// ------ 成功色 ------
+.text-success {
+  color: @color-green-6;
+}
+a.text-success:hover,
+a.text-success:focus {
+  color: @color-green-7;
+}
+// ------ 信息色 ------
+.text-info {
+  color: @color-cyan-6;
+}
+a.text-info:hover,
+a.text-info:focus {
+  color: @color-cyan-7;
+}
+// ------ 警告色 ------
+.text-warning {
+  color: @color-yellow-6;
+}
+a.text-warning:hover,
+a.text-warning:focus {
+  color: @color-yellow-7;
+}
+// ------ 危险色 ------
+.text-danger {
+  color: @color-red-6;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+  color: @color-red-7;
+}
+// ------ 紫色 ------
+.text-purple {
+  color: @color-purple-6;
+}
+a.text-purple:hover,
+a.text-purple:focus {
+  color: @color-purple-7;
+}
+// ------ 玫瑰 女性色 ------
+.text-pink {
+  color: @color-pink-6;
+}
+a.text-pink:hover,
+a.text-pink:focus {
+  color: @color-pink-7;
+}
+// ------ 暖色 醒目温暖 偏warning的深色 ------
+.text-orange {
+  color: @color-orange-6;
+}
+a.text-orange:hover,
+a.text-orange:focus {
+  color: @color-orange-7;
+}
+
+// ------ 黑白 ------
+.text-white{
+	color:@color-white !important;
+}
+.text-black{
+	color:@color-black !important;
+}
+
+// ------ 正常色 ------
+.text-gray-3{
+	color: @color-333;
+}
+.text-gray-6{
+	color: @color-666;
+}
+.text-gray-9{
+	color: @color-999;
+}
+.text-gray-ddd{
+	color: #ddd;
+}
+
+// ------ 删除色 ------
+.text-delete{
+	color: @color-999;
+}
+a.text-delete:hover,
+a.text-delete:focus {
+  color: @color-red-7 !important;
+}
+
+
+.text-link{
+	color: @color-666;
+	&:hover{
+		color: @color-blue-7;
+	}
+}

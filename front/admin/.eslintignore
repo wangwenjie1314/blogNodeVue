@@ -1,0 +1,21 @@
+/build/
+/config/
+/dist/
+/tests/
+/libs/
+# /*.js
+/src/
+
+
+vue.config.js
+webpack.dll.config.js
+
+# Auto fix config files
+.prettierrc.json
+
+# Copy files build var vscode
+* copy.js
+* copy *.js
+
+# Ingnore all the .d.ts files
+*.d.ts
