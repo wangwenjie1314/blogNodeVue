@@ -33,7 +33,7 @@
     "mysql": "2.12.0",
     "node-schedule": "1.2.0",
     "nodemailer": "3.1.4",
-    "sequelize": "3.27.0",
+    "sequelize": "5.21.5",
     "underscore": "1.8.3",
     "winston": "2.2.0"
   },
